@@ -1,33 +1,20 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: Introduction to SiteGPT API
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+# Introduction to SiteGPT API
 
-## Welcome
+Welcome to the SiteGPT API documentation! Here you will find everything you need to get started with integrating SiteGPT into your applications.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## API Keys
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+### Obtaining API Keys
 
-## Authentication
+To access the SiteGPT API, you’ll need a valid API key. Retrieve it from the SiteGPT billing dashboard. If you do not have access, please contact the admin.
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+### Authentication
+
+SiteGPT primarily authenticates using API keys. Always include your API key in the request header:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+'Authorization': 'Bearer <api_key>'
