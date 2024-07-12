@@ -24,4 +24,62 @@ Expect responses from the API in JSON format. Ensure your system can parse this 
 
 If your API key is absent, not formatted correctly, or invalid, you’ll receive a 401 Unauthorized HTTP response.
 
+### API Endpoints
+Convert Bank Statement
 
+Endpoint
+```
+POST /bankstmtconversion
+```
+### Request Headers Table
+
+| Header        | Type   | Description             |
+|---------------|--------|-------------------------|
+| Authorization | String | `Bearer <api_key>`      |
+| Content-Type  | String | `application/json`      |
+
+### Request Body Table
+
+| Field          | Type   | Description                                  |
+|----------------|--------|----------------------------------------------|
+| bank_statement | File   | The bank statement file to be converted (PDF).|
+
+### Response Body Table
+| Field       | Type    | Description                                  |
+|-------------|---------|----------------------------------------------|
+| success     | Boolean | Indicates if the conversion was successful.  |
+| xlsx_path   | String  | The path to the converted Excel file.        |
+| error       | String  | Error message, if any.                       |
+
+ ### Success Codes Table
+ | Code | Description                        |
+|------|------------------------------------|
+| 200  | Conversion successful.             |
+| 201  | Conversion request accepted.       |
+
+### Error Codes Table
+| Code | Description                        |
+|------|------------------------------------|
+| 400  | Bad Request - Invalid input data.  |
+| 401  | Unauthorized - Invalid API key.    |
+| 500  | Internal Server Error.             |
+
+### Example Request
+```
+curl -X POST "http://127.0.0.1:8000/bankstmtconversion?page_num=1" -H "Authorization: Bearer <api_key>" -H "Content-Type: multipart/form-data" -F "file=@/path/to/your/bank_statement.pdf"
+```
+### Example Response
+Success Response
+```
+{
+    "file": "<Excel file contents>"
+}
+```
+Error Response
+```
+{
+    "detail": "No file uploaded. Please upload a file."
+}
+```
+### Support & Assistance
+For assistance or further queries, reach out to us.
