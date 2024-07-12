@@ -4,17 +4,24 @@ title: Introduction to bankstmtconversion API
 
 # Getting start with bankstmtconversion API
 
-Welcome to the SiteGPT API documentation! Here you will find everything you need to get started with integrating SiteGPT into your applications.
+Welcome to the bankstmtconversion API documentation! Here you will find everything you need to get started with integrating bankstmtconversion into your applications.
 
 ## API Keys
 
-### Obtaining API Keys
-
-To access the SiteGPT API, you’ll need a valid API key. Retrieve it from the SiteGPT billing dashboard. If you do not have access, please contact the admin.
-
-### Authentication
-
-SiteGPT primarily authenticates using API keys. Always include your API key in the request header:
+- **Obtaining**: To access the API, you’ll need a valid API key. Retrieve it from the bankstmtconversion billing dashboard. If unavailable, please contact the admin.
+- **Authentication**: bankstmtconversion primarily authenticates using API keys.
+- **Usage**: Always include your API key in the request header:
 
 ```json
 'Authorization': 'Bearer <api_key>'
+```
+
+### JSON Response
+
+Expect responses from the API in JSON format. Ensure your system can parse this data structure. For errors, check the error key within the JSON response.
+
+### Handling Authentication Errors
+
+If your API key is absent, not formatted correctly, or invalid, you’ll receive a 401 Unauthorized HTTP response.
+
+
