@@ -7,9 +7,9 @@
   "info": {
     "title": "SiteGPT API",
     "version": "1.0.0",
-    "description": "API documentation for the SiteGPT API.",
+    "description": "API documentation for the bankstmtconverter API.",
     "contact": {
-      "email": "hi@sitegpt.com"
+      "email": "support@bankstmtconverter.com"
     }
   },
   "paths": {
