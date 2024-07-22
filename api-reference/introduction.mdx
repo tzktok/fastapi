@@ -29,30 +29,32 @@ Convert Bank Statement
 
 Endpoint
 ```
-POST /bankstmtconversion
+POST /bankstmtconversion/sync
 ```
 ### Request Headers Table
 
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
-| Content-Type  | String | `application/json`      |
+| Content-Type  | String | `Multipart/form-data`   |
 
 ### Request Body Table
 
 | Field          | Type   | Description                                  |
 |----------------|--------|----------------------------------------------|
-| bank_statement | File   | The bank statement file to be converted (PDF).|
-
+| file           | File   | The bank statement file to be converted (PDF).|
+| page_num       | Int    | Number of pages to be processed (default is1).|
+    
 ### Response Body Table
+
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
-| success     | Boolean | Indicates if the conversion was successful.  |
-| xlsx_path   | String  | The path to the converted Excel file.        |
+| url     | String   | Presigned URL to download the converted file.   |
+| doc_id   | String  | Document id for converted file.                 |
 | error       | String  | Error message, if any.                       |
 
  ### Success Codes Table
- | Code | Description                        |
+ | Code | Description                       |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
 | 201  | Conversion request accepted.       |
@@ -61,25 +63,153 @@ POST /bankstmtconversion
 | Code | Description                        |
 |------|------------------------------------|
 | 400  | Bad Request - Invalid input data.  |
+| 404  | Not found - file is missing.       |
 | 401  | Unauthorized - Invalid API key.    |
+| 402  | Payment Required - Plan expired.   |
 | 500  | Internal Server Error.             |
 
 ### Example Request
 ```
-curl -X POST "http://127.0.0.1:8000/bankstmtconversion?page_num=1" -H "Authorization: Bearer <api_key>" -H "Content-Type: multipart/form-data" -F "file=@/path/to/your/bank_statement.pdf"
+curl -X POST "http://127.0.0.1:8000/bankstmtconversion/sync?page_num=1" \
+     -H "Authorization: Bearer <api_key>" \
+     -H "Content-Type: multipart/form-data" \
+     -F "file=@/path/to/your/bank_statement.pdf" \
+     -F "page_num=1"
 ```
 ### Example Response
 Success Response
 ```
 {
-    "file": "<Excel file contents>"
+    "url": "https://s3/url"
+    "doc_id": "20240XXX"
 }
 ```
 Error Response
 ```
 {
-    "detail": "No file uploaded. Please upload a file."
+    "code": Error_Code ,
+    "error": "Your_error_message"
 }
 ```
+
+Endpoint
+```
+POST /bankstmtconversion/async
+```
+### Request Headers Table
+
+| Header        | Type   | Description             |
+|---------------|--------|-------------------------|
+| Authorization | String | `Bearer <api_key>`      |
+| Content-Type  | String | `Multipart/form-data`   |
+
+### Request Body Table
+
+| Field          | Type   | Description                                  |
+|----------------|--------|----------------------------------------------|
+| file           | File   | The bank statement file to be converted (PDF).|
+| page_num       | Int    | Number of pages to be processed (default is1).|
+|webhook_url     | String | URL for webhook notification.                 |
+
+### Response Body Table
+| Field       | Type    | Description                                  |
+|-------------|---------|----------------------------------------------|
+| url     | String   | Presigned URL to download the converted file.   |
+| doc_id   | String  | Document id for converted file.                 |
+| error       | String  | Error message, if any.                       |
+
+ ### Success Codes Table
+ | Code | Description                       |
+|------|------------------------------------|
+| 200  | Conversion successful.             |
+| 201  | Conversion request accepted.       |
+
+### Error Codes Table
+| Code | Description                        |
+|------|------------------------------------|
+| 400  | Bad Request - Invalid input data.  |
+| 404  | Not found - file is missing.       |
+| 401  | Unauthorized - Invalid API key.    |
+| 402  | Payment Required - Plan expired.   |
+| 500  | Internal Server Error.             |
+
+### Example Request
+```
+curl -X POST "http://127.0.0.1:8000/bankstmtconversion/async?page_num=1" \
+     -H "Authorization: Bearer <api_key>" \
+     -H "Content-Type: multipart/form-data" \
+     -F "file=@/path/to/your/bank_statement.pdf" \
+     -F "webhook_url="https://Your_webhook_url" \
+     -F "page_num=1"
+```
+### Example Response
+Success Response
+```
+{
+    "url": "https://s3/url"
+    "doc_id": "20240XXX"
+}
+```
+Error Response
+```
+{
+    "code": Error_Code ,
+    "error": "Your_error_message"
+}
+```
+### Check Remaining Credits
+Endpoint
+```
+GET/ bankstmtconversion/balance
+```
+### Request Headers Table
+| Header        | Type   | Description             |
+|---------------|--------|-------------------------|
+| Authorization | String | `Bearer <api_key>`      |
+| Content-Type  | String | `application/json   `   |
+
+### Response Body Table
+| Field       | Type    | Description                                  |
+|-------------|---------|----------------------------------------------|
+| remaining_credits| Int   | Credits after your file processing.       |
+| error            | String| Error message, if any.                    |
+
+### Success Codes Table
+| Code | Description                        |
+|------|------------------------------------|
+| 200  | Conversion successful.             |
+| 201  | Conversion request accepted.       |
+
+### Error Codes Table
+| Code | Description                        |
+|------|------------------------------------|  
+| 401  | Unauthorized - Invalid API key.    |
+
+### Example Request
+```
+curl -X GET "http://127.0.0.1:8000/bankstmtconversion/balance" \
+     -H "Authorization: Bearer <api_key>" \
+     -H "Content-Type: application/json"
+```
+### Example Response
+success Response
+```
+{
+    "remaining_credits": Your_remaining_credits_in_integer_value
+}
+```
+Error Response
+```
+{
+    "code": Error_Code ,
+    "error": "Your_error_message"
+}
+```
+
+
+
+
+
+
 ### Support & Assistance
 For assistance or further queries, reach out to us.
