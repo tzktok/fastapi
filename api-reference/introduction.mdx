@@ -31,21 +31,21 @@ Endpoint
 ```
 POST /bankstmtconversion/sync
 ```
-### Request Headers Table
+### Request Headers - Sync
 
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
 | Content-Type  | String | `Multipart/form-data`   |
 
-### Request Body Table
+### Request Body - Sync
 
 | Field          | Type   | Description                                  |
 |----------------|--------|----------------------------------------------|
 | file           | File   | The bank statement file to be converted (PDF).|
 | page_num       | Int    | Number of pages to be processed (default is1).|
     
-### Response Body Table
+### Response Body 
 
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
@@ -53,13 +53,13 @@ POST /bankstmtconversion/sync
 | doc_id   | String  | Document id for converted file.                 |
 | error       | String  | Error message, if any.                       |
 
- ### Success Codes Table
+ ### Success Codes
  | Code | Description                       |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
 | 201  | Conversion request accepted.       |
 
-### Error Codes Table
+### Error Codes 
 | Code | Description                        |
 |------|------------------------------------|
 | 400  | Bad Request - Invalid input data.  |
@@ -68,7 +68,7 @@ POST /bankstmtconversion/sync
 | 402  | Payment Required - Plan expired.   |
 | 500  | Internal Server Error.             |
 
-### Example Request
+### Example Request - Sync
 ```
 curl -X POST "http://127.0.0.1:8000/bankstmtconversion/sync?page_num=1" \
      -H "Authorization: Bearer <api_key>" \
@@ -96,14 +96,14 @@ Endpoint
 ```
 POST /bankstmtconversion/async
 ```
-### Request Headers Table
+### Request Headers - Async
 
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
 | Content-Type  | String | `Multipart/form-data`   |
 
-### Request Body Table
+### Request Body - Async
 
 | Field          | Type   | Description                                  |
 |----------------|--------|----------------------------------------------|
@@ -111,20 +111,20 @@ POST /bankstmtconversion/async
 | page_num       | Int    | Number of pages to be processed (default is1).|
 |webhook_url     | String | URL for webhook notification.                 |
 
-### Response Body Table
+### Response Body 
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
 | url     | String   | Presigned URL to download the converted file.   |
 | doc_id   | String  | Document id for converted file.                 |
 | error       | String  | Error message, if any.                       |
 
- ### Success Codes Table
+ ### Success Codes 
  | Code | Description                       |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
 | 201  | Conversion request accepted.       |
 
-### Error Codes Table
+### Error Codes 
 | Code | Description                        |
 |------|------------------------------------|
 | 400  | Bad Request - Invalid input data.  |
@@ -133,7 +133,7 @@ POST /bankstmtconversion/async
 | 402  | Payment Required - Plan expired.   |
 | 500  | Internal Server Error.             |
 
-### Example Request
+### Example Request - Async
 ```
 curl -X POST "http://127.0.0.1:8000/bankstmtconversion/async?page_num=1" \
      -H "Authorization: Bearer <api_key>" \
@@ -162,25 +162,25 @@ Endpoint
 ```
 GET/ bankstmtconversion/balance
 ```
-### Request Headers Table
+### Request Headers 
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
 | Content-Type  | String | `application/json   `   |
 
-### Response Body Table
+### Response Body 
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
 | remaining_credits| Int   | Credits after your file processing.       |
 | error            | String| Error message, if any.                    |
 
-### Success Codes Table
+### Success Codes 
 | Code | Description                        |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
 | 201  | Conversion request accepted.       |
 
-### Error Codes Table
+### Error Codes 
 | Code | Description                        |
 |------|------------------------------------|  
 | 401  | Unauthorized - Invalid API key.    |
