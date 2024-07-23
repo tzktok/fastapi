@@ -27,7 +27,7 @@
   },
   "tabs": [
     {
-      "name": "Endpoint Examples2 ",
+      "name": "API Reference",
       "url": "api-reference",
       "openapi": "/api-reference/openapi.json"
     }
@@ -74,15 +74,8 @@
       "pages": [
         "api-reference/introduction"
       ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
     }
+    
   ],
   "footerSocials": {
     "x": "https://x.com/mintlify",
