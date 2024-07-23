@@ -28,16 +28,15 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference"
-      
+      "url": "api-reference",
+      "openapi": "/api-reference/openapi.json"
     }
   ],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs",
-      "openapi": "/api-reference/openapi.json"
+      "url": "https://mintlify.com/docs"
     },
     {
       "name": "Community",
@@ -74,6 +73,13 @@
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"
+      ]
+      
+    }
+    {
+      "group": "Endpoint Examples",
+      "pages":[
+        "api-reference/openapi.json"
       ]
     }
     
