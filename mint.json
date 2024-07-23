@@ -27,7 +27,7 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "Endpoint Examples2 ",
       "url": "api-reference",
       "openapi": "/api-reference/openapi.json"
     }
