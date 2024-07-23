@@ -29,7 +29,7 @@
     {
       "name": "API Reference",
       "url": "api-reference",
-      "openapi": "/api-reference/openapi.json"
+      
     }
   ],
   "anchors": [
@@ -37,6 +37,7 @@
       "name": "Documentation",
       "icon": "book-open-cover",
       "url": "https://mintlify.com/docs"
+      "openapi": "/api-reference/openapi.json"
     },
     {
       "name": "Community",
