@@ -78,11 +78,12 @@
     },
     {
       "group": "Endpoint Examples",
-      "pages":[
-        "api-reference/openapi.json"
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
       ]
-    }
-    
+    }    
   ],
   "footerSocials": {
     "x": "https://x.com/mintlify",
