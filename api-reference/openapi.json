@@ -1,39 +1,283 @@
-
-### Content of `openapi.json`
-
-```json
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.3",
   "info": {
-    "title": "SiteGPT API",
-    "version": "1.0.0",
-    "description": "API documentation for the bankstmtconverter API.",
-    "contact": {
-      "email": "support@bankstmtconverter.com"
-    }
+    "title": "Bank Statement Converter API",
+    "description": "API for converting bank statement PDFs to other formats.",
+    "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000",
+      "description": "Local server"
+    }
+  ],
   "paths": {
-    "/endpoint": {
-      "get": {
-        "summary": "Get endpoint",
-        "description": "Endpoint to retrieve data.",
+    "/bankstmtconversion/sync": {
+      "post": {
+        "summary": "Convert Bank Statement (Sync)",
+        "description": "Convert a bank statement PDF synchronously.",
+        "operationId": "convertBankStatementSync",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The bank statement file to be converted (PDF)."
+                  },
+                  "page_num": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Number of pages to be processed."
+                  }
+                },
+                "required": ["file"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Conversion successful.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
-                      "type": "string"
+                    "url": {
+                      "type": "string",
+                      "description": "Presigned URL to download the converted file."
+                    },
+                    "doc_id": {
+                      "type": "string",
+                      "description": "Document ID for the converted file."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid input data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message."
                     }
                   }
                 }
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/bankstmtconversion/async": {
+      "post": {
+        "summary": "Convert Bank Statement (Async)",
+        "description": "Convert a bank statement PDF asynchronously.",
+        "operationId": "convertBankStatementAsync",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The bank statement file to be converted (PDF)."
+                  },
+                  "page_num": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Number of pages to be processed."
+                  },
+                  "webhook_url": {
+                    "type": "string",
+                    "description": "URL for webhook notification."
+                  }
+                },
+                "required": ["file", "webhook_url"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Conversion successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "Presigned URL to download the converted file."
+                    },
+                    "doc_id": {
+                      "type": "string",
+                      "description": "Document ID for the converted file."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid input data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/bankstmtconversion/balance": {
+      "get": {
+        "summary": "Check Remaining Credits",
+        "description": "Retrieve the remaining credits available for file processing.",
+        "operationId": "checkRemainingCredits",
+        "responses": {
+          "200": {
+            "description": "Request successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "remaining_credits": {
+                      "type": "integer",
+                      "description": "Credits remaining after your file processing."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
       }
     }
   }
