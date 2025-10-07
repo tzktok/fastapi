@@ -7,12 +7,12 @@
   },
   "servers": [
     {
-      "url": "http://127.0.0.1:8000",
+      "url": "bankstmtconverter/api",
       "description": "Local server"
     }
   ],
   "paths": {
-    "/bankstmtconversion/sync": {
+    "/sync": {
       "post": {
         "summary": "Convert Bank Statement (Sync)",
         "description": "Convert a bank statement PDF synchronously.",
@@ -117,7 +117,7 @@
         ]
       }
     },
-    "/bankstmtconversion/async": {
+    "/async": {
       "post": {
         "summary": "Convert Bank Statement (Async)",
         "description": "Convert a bank statement PDF asynchronously.",
@@ -226,7 +226,7 @@
         ]
       }
     },
-    "/bankstmtconversion/balance": {
+    "/balance": {
       "get": {
         "summary": "Check Remaining Credits",
         "description": "Retrieve the remaining credits available for file processing.",
