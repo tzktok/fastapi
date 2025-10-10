@@ -31,42 +31,47 @@ Endpoint
 ```
 POST /bankstmtconversion/sync
 ```
-### Request Headers - Sync
+#### Request Headers
 
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
-| Content-Type  | String | `Multipart/form-data`   |
+| Content-Type  | String | `multipart/form-data`   |
 
-### Request Body - Sync
+#### Request Body
 
-| Field          | Type   | Description                                  |
-|----------------|--------|----------------------------------------------|
-| file           | File   | The bank statement file to be converted (PDF).|
-| page_num       | Int    | Number of pages to be processed (default is1).|
-    
-### Response Body 
+| Field     | Type   | Description                                                      |
+|-----------|--------|------------------------------------------------------------------|
+| file      | String | URL of the bank statement file to be converted (PDF).            |
+| page_num  | Int    | Number of pages to be processed (default is 1).                  |
 
-| Field       | Type    | Description                                  |
-|-------------|---------|----------------------------------------------|
-| url     | String   | Presigned URL to download the converted file.   |
-| doc_id   | String  | Document id for converted file.                 |
-| error       | String  | Error message, if any.                       |
+#### Response Body
 
-### Success Codes
- | Code | Description                       |
-|------|------------------------------------|
-| 200  | Conversion successful.             |
-| 201  | Conversion request accepted.       |
+| Field   | Type   | Description                                    |
+|---------|--------|------------------------------------------------|
+| url     | String | Presigned URL to download the converted file.  |
+| doc_id  | String | Document ID for converted file.                |
+| error   | String | Error message, if any.                         |
 
-### Error Codes 
-| Code | Description                        |
-|------|------------------------------------|
-| 400  | Bad Request - Invalid input data.  |
-| 404  | Not found - file is missing.       |
-| 401  | Unauthorized - Invalid API key.    |
-| 402  | Payment Required - Plan expired.   |
-| 500  | Internal Server Error.             |
+#### Success Codes
+
+| Code | Description                  |
+|------|------------------------------|
+| 200  | Conversion successful.       |
+| 201  | Conversion request accepted. |
+
+#### Error Codes
+
+| Code | Description                       |
+|------|-----------------------------------|
+| 400  | Bad Request - Invalid input data. |
+| 404  | Not found - file is missing.      |
+| 401  | Unauthorized - Invalid API key.   |
+| 402  | Payment Required - Plan expired.  |
+| 500  | Internal Server Error.            |
+
+#### Example Request
+```bash
 
 ### Example Request - Sync
 ```
@@ -75,7 +80,8 @@ curl --request POST \
   --header 'Authorization: Bearer <token>' \
   --header 'Content-Type: multipart/form-data' \
   --form page_num=1 \
-  --form file=@example-file
+  --form file="https://example.com/path/to/your/file.pdf"
+
 ```
 ### Example Response
 Success Response
@@ -106,17 +112,17 @@ POST /bankstmtconversion/async
 
 ### Request Body - Async
 
-| Field          | Type   | Description                                  |
-|----------------|--------|----------------------------------------------|
-| file           | File   | The bank statement file to be converted (PDF).|
-| page_num       | Int    | Number of pages to be processed (default is1).|
-|webhook_url     | String | URL for webhook notification.                 |
+| Field          | Type   | Description                                          |
+|----------------|--------|------------------------------------------------------|
+| file           | String | URL of the bank statement file to be converted (PDF).|
+| page_num       | Int    | Number of pages to be processed (default is1).       |
+|webhook_url     | String | URL for webhook notification.                        |
 
 ### Response Body 
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
-| url     | String   | Presigned URL to download the converted file.   |
-| doc_id   | String  | Document id for converted file.                 |
+| url         | String  | Presigned URL to download the converted file.|
+| doc_id      | String  | Document id for converted file.              |
 | error       | String  | Error message, if any.                       |
 
  ### Success Codes 
@@ -142,14 +148,14 @@ curl --request POST \
   --header 'Content-Type: multipart/form-data' \
   --form page_num=1 \
   --form 'webhook_url=<string>' \
-  --form file=@example-file
+  --form file="https://example.com/path/to/your/file.pdf"
 ```
 ### Example Response
 Success Response
 ```
 {
-    "url": "https://s3/url"
-    "doc_id": "20240XXX"
+    "doc_id": "20240XXX",
+    "status": "In-Progress"
 }
 ```
 Error Response

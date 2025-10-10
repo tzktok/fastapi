@@ -10,7 +10,6 @@
       "url": "https://api.bankstmtconverter.com",
       "description": "Production server"
     }
-
   ],
   "paths": {
     "/sync": {
@@ -21,14 +20,14 @@
         "requestBody": {
           "required": true,
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
                   "file": {
                     "type": "string",
-                    "format": "binary",
-                    "description": "The bank statement file to be converted (PDF)."
+                    "format": "uri",
+                    "description": "URL of the bank statement file to be converted (PDF)."
                   },
                   "page_num": {
                     "type": "integer",
@@ -87,14 +86,14 @@
         "requestBody": {
           "required": true,
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
                   "file": {
                     "type": "string",
-                    "format": "binary",
-                    "description": "The bank statement file to be converted (PDF)."
+                    "format": "uri",
+                    "description": "URL of the bank statement file to be converted (PDF)."
                   },
                   "page_num": {
                     "type": "integer",
@@ -103,6 +102,7 @@
                   },
                   "webhook_url": {
                     "type": "string",
+                    "format": "uri",
                     "description": "URL for webhook notification."
                   }
                 },
