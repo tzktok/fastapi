@@ -1,11 +1,10 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -18,12 +17,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@bankstmtconverter.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://bankstmtconverter.com/"
   },
   "tabs": [
     {
@@ -36,7 +35,7 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/bankstmt",
+        "api-reference/bankstmtconverter",
         "api-reference/quickstart",
         "api-reference/introduction"
       ]
