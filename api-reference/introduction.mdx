@@ -70,11 +70,12 @@ POST /bankstmtconversion/sync
 
 ### Example Request - Sync
 ```
-curl -X POST "http://127.0.0.1:8000/bankstmtconversion/sync?page_num=1" \
-     -H "Authorization: Bearer <api_key>" \
-     -H "Content-Type: multipart/form-data" \
-     -F "file=@/path/to/your/bank_statement.pdf" \
-     -F "page_num=1"
+curl --request POST \
+  --url https://api.bankstmtconverter.com/sync \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: multipart/form-data' \
+  --form page_num=1 \
+  --form file=@example-file
 ```
 ### Example Response
 Success Response
@@ -135,12 +136,13 @@ POST /bankstmtconversion/async
 
 ### Example Request - Async
 ```
-curl -X POST "http://127.0.0.1:8000/bankstmtconversion/async?page_num=1" \
-     -H "Authorization: Bearer <api_key>" \
-     -H "Content-Type: multipart/form-data" \
-     -F "file=@/path/to/your/bank_statement.pdf" \
-     -F "webhook_url="https://Your_webhook_url" \
-     -F "page_num=1"
+curl --request POST \
+  --url https://api.bankstmtconverter.com/async \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: multipart/form-data' \
+  --form page_num=1 \
+  --form 'webhook_url=<string>' \
+  --form file=@example-file
 ```
 ### Example Response
 Success Response
@@ -187,9 +189,9 @@ GET/ bankstmtconversion/balance
 
 ### Example Request
 ```
-curl -X GET "http://127.0.0.1:8000/bankstmtconversion/balance" \
-     -H "Authorization: Bearer <api_key>" \
-     -H "Content-Type: application/json"
+curl --request GET \
+  --url https://api.bankstmtconverter.com/balance \
+  --header 'Authorization: Bearer <token>'
 ```
 ### Example Response
 success Response
