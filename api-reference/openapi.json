@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/sync": {
+    "https://api.bankstmtconverter.com/sync": {
       "post": {
         "summary": "Convert Bank Statement (Sync)",
         "description": "Convert a bank statement PDF synchronously.",
@@ -117,7 +117,7 @@
         ]
       }
     },
-    "/async": {
+    "https://api.bankstmtconverter.com/async": {
       "post": {
         "summary": "Convert Bank Statement (Async)",
         "description": "Convert a bank statement PDF asynchronously.",
@@ -226,7 +226,7 @@
         ]
       }
     },
-    "/balance": {
+    "https://api.bankstmtconverter.com/balance": {
       "get": {
         "summary": "Check Remaining Credits",
         "description": "Retrieve the remaining credits available for file processing.",
