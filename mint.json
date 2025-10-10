@@ -3,7 +3,7 @@
   "logo": {
     "dark": "logo.svg",
     "light": "logo.svg",
-    "title": "Bankstmtconverter"
+    "name": "Bankstmtconverter"
   },
   "favicon": "/logo.svg",
   "colors": {
