@@ -1,5 +1,4 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
   "name": "Bankstmtconverter",
   "logo": {
     "dark": "/logo/dark.svg",
