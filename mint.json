@@ -2,9 +2,9 @@
   "name": "Bankstmtconverter",
   "logo": {
     "dark": "logo.svg",
-    "light": "logo.svg",
-    "name": "Bankstmtconverter"
+    "light": "logo.svg"
   },
+  "logoText": "bankstmt",
   "favicon": "/logo.svg",
   "colors": {
     "primary": "#0D9373",
