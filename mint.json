@@ -36,6 +36,7 @@
     {
       "group": "API Documentation",
       "pages": [
+        "api-reference/bankstmt",
         "api-reference/introduction"
       ]
     }
