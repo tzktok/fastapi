@@ -7,12 +7,13 @@
   },
   "servers": [
     {
-      "url": "bankstmtconverter/api",
-      "description": "Local server"
+      "url": "https://api.bankstmtconverter.com",
+      "description": "Production server"
     }
+
   ],
   "paths": {
-    "https://api.bankstmtconverter.com/sync": {
+    "/sync": {
       "post": {
         "summary": "Convert Bank Statement (Sync)",
         "description": "Convert a bank statement PDF synchronously.",
@@ -62,52 +63,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid input data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Bad Request - Invalid input data."
           },
           "401": {
-            "description": "Unauthorized - Invalid API key.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Unauthorized - Invalid API key."
           },
           "500": {
-            "description": "Internal Server Error.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Internal Server Error."
           }
         },
         "security": [
@@ -117,7 +79,7 @@
         ]
       }
     },
-    "https://api.bankstmtconverter.com/async": {
+    "/async": {
       "post": {
         "summary": "Convert Bank Statement (Async)",
         "description": "Convert a bank statement PDF asynchronously.",
@@ -151,72 +113,16 @@
         },
         "responses": {
           "200": {
-            "description": "Conversion successful.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "url": {
-                      "type": "string",
-                      "description": "Presigned URL to download the converted file."
-                    },
-                    "doc_id": {
-                      "type": "string",
-                      "description": "Document ID for the converted file."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Conversion initiated successfully."
           },
           "400": {
-            "description": "Bad Request - Invalid input data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Bad Request - Invalid input data."
           },
           "401": {
-            "description": "Unauthorized - Invalid API key.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Unauthorized - Invalid API key."
           },
           "500": {
-            "description": "Internal Server Error.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Internal Server Error."
           }
         },
         "security": [
@@ -226,7 +132,7 @@
         ]
       }
     },
-    "https://api.bankstmtconverter.com/balance": {
+    "/balance": {
       "get": {
         "summary": "Check Remaining Credits",
         "description": "Retrieve the remaining credits available for file processing.",
@@ -249,20 +155,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized - Invalid API key.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message."
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Unauthorized - Invalid API key."
           }
         },
         "security": [
