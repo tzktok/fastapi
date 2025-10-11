@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api.bankstmtconverter.com",
+      "url": "https://api.datasnapy.com",
       "description": "Production server"
     }
   ],
