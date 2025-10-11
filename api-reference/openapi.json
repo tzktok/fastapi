@@ -117,12 +117,11 @@
                   },
                   "webhook_url": {
                     "type": "string",
-                    "nullable": true,
-                    "description": "URL to receive webhook notification after processing. **Optional**",
+                    "description": "URL to receive webhook notification after processing. **Required**",
                     "example": "https://webhook.site/xxxx"
                   }
                 },
-                "required": ["file"]
+                "required": ["file", "webhook_url"]
               }
             }
           }
