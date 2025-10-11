@@ -26,18 +26,19 @@
                 "properties": {
                   "file": {
                     "type": "string",
-                    "description": "URL of the bank statement file to be converted (PDF).",
+                    "description": "URL of the bank statement file to be converted (PDF). **Required**",
                     "example": "https://example.com/sample.pdf"
                   },
                   "page_num": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Number of pages to be processed."
+                    "minimum": 1,
+                    "description": "Number of pages to be processed. **Optional** (defaults to 1)."
                   },
                   "password": {
                     "type": "string",
                     "nullable": true,
-                    "description": "Password if the PDF is protected."
+                    "description": "Password if the PDF is protected. **Optional**"
                   }
                 },
                 "required": ["file"]
@@ -72,6 +73,9 @@
           "401": {
             "description": "Unauthorized - Invalid API key."
           },
+          "422": {
+            "description": "Validation Error - Invalid parameters."
+          },
           "500": {
             "description": "Internal Server Error."
           }
@@ -97,26 +101,28 @@
                 "properties": {
                   "file": {
                     "type": "string",
-                    "description": "URL of the bank statement file to be converted (PDF).",
+                    "description": "URL of the bank statement file to be converted (PDF). **Required**",
                     "example": "https://example.com/sample.pdf"
                   },
                   "page_num": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Number of pages to be processed."
+                    "minimum": 1,
+                    "description": "Number of pages to be processed. **Optional** (defaults to 1)."
                   },
                   "password": {
                     "type": "string",
                     "nullable": true,
-                    "description": "Password if the PDF is protected."
+                    "description": "Password if the PDF is protected. **Optional**"
                   },
                   "webhook_url": {
                     "type": "string",
-                    "description": "URL to receive webhook notification after processing.",
+                    "nullable": true,
+                    "description": "URL to receive webhook notification after processing. **Optional**",
                     "example": "https://webhook.site/xxxx"
                   }
                 },
-                "required": ["file", "webhook_url"]
+                "required": ["file"]
               }
             }
           }
@@ -130,6 +136,9 @@
           },
           "401": {
             "description": "Unauthorized - Invalid API key."
+          },
+          "422": {
+            "description": "Validation Error - Invalid parameters."
           },
           "500": {
             "description": "Internal Server Error."
@@ -180,7 +189,8 @@
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer"
+        "scheme": "bearer",
+        "description": "Enter your API Bearer token"
       }
     }
   }
