@@ -20,19 +20,24 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
                   "file": {
                     "type": "string",
-                    "format": "uri",
-                    "description": "URL of the bank statement file to be converted (PDF)."
+                    "description": "URL of the bank statement file to be converted (PDF).",
+                    "example": "https://example.com/sample.pdf"
                   },
                   "page_num": {
                     "type": "integer",
                     "default": 1,
                     "description": "Number of pages to be processed."
+                  },
+                  "password": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Password if the PDF is protected."
                   }
                 },
                 "required": ["file"]
@@ -86,24 +91,29 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
                   "file": {
                     "type": "string",
-                    "format": "uri",
-                    "description": "URL of the bank statement file to be converted (PDF)."
+                    "description": "URL of the bank statement file to be converted (PDF).",
+                    "example": "https://example.com/sample.pdf"
                   },
                   "page_num": {
                     "type": "integer",
                     "default": 1,
                     "description": "Number of pages to be processed."
                   },
+                  "password": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Password if the PDF is protected."
+                  },
                   "webhook_url": {
                     "type": "string",
-                    "format": "uri",
-                    "description": "URL for webhook notification."
+                    "description": "URL to receive webhook notification after processing.",
+                    "example": "https://webhook.site/xxxx"
                   }
                 },
                 "required": ["file", "webhook_url"]
