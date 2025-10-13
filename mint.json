@@ -52,7 +52,19 @@
     {
       "group": "Documentation",
       "pages": [
-        "docs/tools"
+        "docs/introduction",
+        "docs/tools",
+        "docs/api-key",
+        "docs/contact",
+        "docs/data-security-privacy",
+        "docs/faq",
+        "docs/home",
+        "docs/mailbox",
+        "docs/statement",
+        "docs/auto-email-forwarding/apple-icloud-message",
+        "docs/auto-email-forwarding/gmail-forwarding",
+        "docs/auto-email-forwarding/outlook-forwarding",
+        "docs/auto-email-forwarding/yahoo-forwarding"
       ]
     }
   ],
