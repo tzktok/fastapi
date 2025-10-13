@@ -31,17 +31,28 @@
       "openapi": "/api-reference/openapi.json"
     },
     {
-       "name": "Docs",
-       "url": "/docs/tools"
+      "name": "Docs",
+      "url": "docs"
     }
   ],
   "navigation": [
     {
+      "group": "Getting Started",
+      "pages": [
+        "quickstart"
+      ]
+    },
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/bankstmtconverter",
-        "api-reference/quickstart",
         "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Documentation",
+      "pages": [
+        "docs/tools"
       ]
     }
   ],
