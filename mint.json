@@ -26,12 +26,12 @@
   },
   "tabs": [
     {
-      "name": "Getting Started",
-      "url": "getting-started"
+      "name": "API Docs",
+      "url": "api-reference"
     },
     {
-      "name": "API Reference",
-      "url": "api-reference",
+      "name": "API Endpoints",
+      "url": "api-endpoints",
       "openapi": "/api-reference/openapi.json"
     },
     {
@@ -49,28 +49,17 @@
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Core Features",
+      "group": "Documentation",
       "pages": [
         "docs/introduction",
         "docs/tools",
         "docs/api-key",
+        "docs/contact",
+        "docs/data-security-privacy",
+        "docs/faq",
         "docs/home",
         "docs/mailbox",
         "docs/statement"
-      ]
-    },
-    {
-      "group": "Support & Security",
-      "pages": [
-        "docs/contact",
-        "docs/data-security-privacy",
-        "docs/faq"
       ]
     },
     {
