@@ -53,14 +53,49 @@
       "group": "Documentation",
       "pages": [
         "docs/introduction",
-        "docs/tools",
-        "docs/api-key",
-        "docs/contact",
-        "docs/data-security-privacy",
-        "docs/faq",
         "docs/home",
+        "docs/statement",
+        {
+          "group": "Get Started",
+          "pages": [
+            "docs/get-started/create-an-account",
+            "docs/get-started/dashboard-overview"
+          ]
+        },
+        {
+          "group": "How It Works",
+          "pages": [
+            "docs/how-it-works/ai-model-works",
+            "docs/how-it-works/conversion-process",
+            "docs/how-it-works/ocr-processing"
+          ]
+        },
+        {
+          "group": "How To Use",
+          "pages": [
+            "docs/how-to-use/supported-format",
+            "docs/how-to-use/upload-first-document"
+          ]
+        },
+        {
+          "group": "Integration",
+          "pages": [
+            "docs/integration/google-sheets",
+            "docs/integration/webhooks"
+          ]
+        },
         "docs/mailbox",
-        "docs/statement"
+        {
+          "group": "Settings",
+          "pages": [
+            "docs/settings/billing-invoices",
+            "docs/settings/notification",
+            "docs/settings/security"
+          ]
+        },
+        "docs/api-key",
+        "docs/tools",
+        "docs/faq"
       ]
     },
     {
@@ -73,32 +108,15 @@
       ]
     },
     {
-      "group": "Get Started",
+      "group": "Contact",
       "pages": [
-        "docs/get-started/create-an-account",
-        "docs/get-started/dashboard-overview"
+        "docs/contact"
       ]
     },
     {
-      "group": "How It Works",
+      "group": "Data-privacy",
       "pages": [
-        "docs/how-it-works/ai-model-works",
-        "docs/how-it-works/conversion-process",
-        "docs/how-it-works/ocr-processing"
-      ]
-    },
-    {
-      "group": "How To Use",
-      "pages": [
-        "docs/how-to-use/supported-format",
-        "docs/how-to-use/upload-first-document"
-      ]
-    },
-    {
-      "group": "Integration",
-      "pages": [
-        "docs/integration/google-sheets",
-        "docs/integration/webhooks"
+        "docs/data-security-privacy"
       ]
     },
     {
@@ -107,19 +125,10 @@
         "docs/release-notes/latest-update",
         "docs/release-notes/version-history"
       ]
-    },
-    {
-      "group": "Settings",
-      "pages": [
-        "docs/settings/billing-invoices",
-        "docs/settings/notification",
-        "docs/settings/security"
-      ]
     }
+
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "github": "https://github.com/BankStmtConverter"
   }
 }
