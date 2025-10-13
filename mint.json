@@ -26,7 +26,11 @@
   },
   "tabs": [
     {
-      "name": "API Docs",
+      "name": "Documentation",
+      "url": "docs"
+    },
+    {
+      "name": "API Documentation",
       "url": "api-reference"
     },
     {
@@ -34,10 +38,7 @@
       "url": "api-endpoints",
       "openapi": "/api-reference/openapi.json"
     },
-    {
-      "name": "Documentation",
-      "url": "docs"
-    }
+    
   ],
   "navigation": [
     {
