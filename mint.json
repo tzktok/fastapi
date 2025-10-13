@@ -71,6 +71,50 @@
         "docs/auto-email-forwarding/outlook-forwarding",
         "docs/auto-email-forwarding/yahoo-forwarding"
       ]
+    },
+    {
+      "group": "Get Started",
+      "pages": [
+        "docs/get-started/create-an-account",
+        "docs/get-started/dashboard-overview"
+      ]
+    },
+    {
+      "group": "How It Works",
+      "pages": [
+        "docs/how-it-works/ai-model-works",
+        "docs/how-it-works/conversion-process",
+        "docs/how-it-works/ocr-processing"
+      ]
+    },
+    {
+      "group": "How To Use",
+      "pages": [
+        "docs/how-to-use/supported-format",
+        "docs/how-to-use/upload-first-document"
+      ]
+    },
+    {
+      "group": "Integration",
+      "pages": [
+        "docs/integration/google-sheets",
+        "docs/integration/webhooks"
+      ]
+    },
+    {
+      "group": "Release Notes",
+      "pages": [
+        "docs/release-notes/latest-update",
+        "docs/release-notes/version-history"
+      ]
+    },
+    {
+      "group": "Settings",
+      "pages": [
+        "docs/settings/billing-invoices",
+        "docs/settings/notification",
+        "docs/settings/security"
+      ]
     }
   ],
   "footerSocials": {
