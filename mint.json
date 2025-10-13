@@ -53,8 +53,6 @@
       "group": "Documentation",
       "pages": [
         "docs/introduction",
-        "docs/file-upload",
-        "docs/statement",
         {
           "group": "Get Started",
           "pages": [
@@ -62,6 +60,8 @@
             "docs/get-started/dashboard-overview"
           ]
         },
+        "docs/file-upload",
+        "docs/statement",
         {
           "group": "How It Works",
           "pages": [
@@ -78,14 +78,6 @@
           ]
         },
         {
-          "group": "Integration",
-          "pages": [
-            "docs/integration/google-sheets",
-            "docs/integration/webhooks"
-          ]
-        },
-        "docs/mailbox",
-        {
           "group": "Settings",
           "pages": [
             "docs/settings/billing-invoices",
@@ -96,6 +88,19 @@
         "docs/api-key",
         "docs/tools",
         "docs/faq"
+      ]
+    },
+    {
+      "group": "Integration",
+      "pages": [
+        "docs/integration/google-sheets",
+        "docs/integration/webhooks"
+      ]
+    },
+    {
+      "group": "Mailbox",
+      "pages": [
+         "docs/mailbox"
       ]
     },
     {
