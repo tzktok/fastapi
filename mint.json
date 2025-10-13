@@ -60,7 +60,12 @@
         "docs/faq",
         "docs/home",
         "docs/mailbox",
-        "docs/statement",
+        "docs/statement"
+      ]
+    },
+    {
+      "group": "Auto Email Forwarding",
+      "pages": [
         "docs/auto-email-forwarding/apple-icloud-message",
         "docs/auto-email-forwarding/gmail-forwarding",
         "docs/auto-email-forwarding/outlook-forwarding",
