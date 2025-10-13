@@ -43,9 +43,9 @@
     {
       "group": "Getting Started",
       "pages": [
-        "getting-started/quickstart",
-        "getting-started/introduction",
-        "getting-started/bankstmtconverter"
+        "api-reference/quickstart",
+        "api-reference/introduction",
+        "api-reference/bankstmtconverter"
       ]
     },
     {
