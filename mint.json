@@ -78,6 +78,19 @@
           ]
         },
         {
+          "group": "Integration",
+          "pages": [
+            "docs/integration/google-sheets",
+            "docs/integration/webhooks"
+          ]
+        },
+        {
+          "group": "Mailbox",
+          "pages": [
+             "docs/mailbox"
+          ]
+        },
+        {
           "group": "Settings",
           "pages": [
             "docs/settings/billing-invoices",
@@ -88,19 +101,6 @@
         "docs/api-key",
         "docs/tools",
         "docs/faq"
-      ]
-    },
-    {
-      "group": "Integration",
-      "pages": [
-        "docs/integration/google-sheets",
-        "docs/integration/webhooks"
-      ]
-    },
-    {
-      "group": "Mailbox",
-      "pages": [
-         "docs/mailbox"
       ]
     },
     {
@@ -134,6 +134,6 @@
 
   ],
   "footerSocials": {
-    "github": "https://github.com/BankStmtConverter"
+    "github": "https://github.com/tzktok/fastapi/tree/main/docs"
   }
 }
