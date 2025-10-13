@@ -104,6 +104,19 @@
       ]
     },
     {
+      "group": "Integration",
+      "pages": [
+        "docs/integration/google-sheets",
+        "docs/integration/webhooks"
+      ]
+    },
+    {
+      "group": "Mailbox",
+      "pages": [
+         "docs/mailbox"
+      ]
+    },
+    {
       "group": "Auto Email Forwarding",
       "pages": [
         "docs/auto-email-forwarding/apple-icloud-message",
