@@ -26,12 +26,16 @@
   },
   "tabs": [
     {
-      "name": "API Endpoints",
-      "url": "api-endpoints",
+      "name": "Getting Started",
+      "url": "getting-started"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference",
       "openapi": "/api-reference/openapi.json"
     },
     {
-      "name": "Docs",
+      "name": "Documentation",
       "url": "docs"
     }
   ],
@@ -39,28 +43,34 @@
     {
       "group": "Getting Started",
       "pages": [
-        "quickstart"
+        "getting-started/quickstart",
+        "getting-started/introduction",
+        "getting-started/bankstmtconverter"
       ]
     },
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/bankstmtconverter",
         "api-reference/introduction"
       ]
     },
     {
-      "group": "Documentation",
+      "group": "Core Features",
       "pages": [
         "docs/introduction",
         "docs/tools",
         "docs/api-key",
-        "docs/contact",
-        "docs/data-security-privacy",
-        "docs/faq",
         "docs/home",
         "docs/mailbox",
         "docs/statement"
+      ]
+    },
+    {
+      "group": "Support & Security",
+      "pages": [
+        "docs/contact",
+        "docs/data-security-privacy",
+        "docs/faq"
       ]
     },
     {
