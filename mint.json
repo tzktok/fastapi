@@ -29,6 +29,10 @@
       "name": "API Endpoints",
       "url": "api-endpoints",
       "openapi": "/api-reference/openapi.json"
+    },
+    {
+       "name": "Docs",
+       "url": "docs/tools"
     }
   ],
   "navigation": [
@@ -38,12 +42,6 @@
         "api-reference/bankstmtconverter",
         "api-reference/quickstart",
         "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Docs",
-      "pages": [
-        "docs/tools"
       ]
     }
   ],
