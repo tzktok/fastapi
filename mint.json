@@ -78,19 +78,6 @@
           ]
         },
         {
-          "group": "Integration",
-          "pages": [
-            "docs/integration/google-sheets",
-            "docs/integration/webhooks"
-          ]
-        },
-        {
-          "group": "Mailbox",
-          "pages": [
-             "docs/mailbox"
-          ]
-        },
-        {
           "group": "Settings",
           "pages": [
             "docs/settings/billing-invoices",
