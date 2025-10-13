@@ -39,6 +39,12 @@
         "api-reference/quickstart",
         "api-reference/introduction"
       ]
+    },
+    {
+      "group": "Docs",
+      "pages": [
+        "docs/tools"
+      ]
     }
   ],
   "footerSocials": {
