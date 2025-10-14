@@ -1,7 +1,7 @@
 {
   "name": "Bankstmtconverter",
   "logo": {
-    "dark": "logo-final.png",
+    "dark": "logo.png",
     "light": "logo-final.png"
   },
   "favicon": "/logo.svg",
@@ -27,7 +27,7 @@
   "tabs": [
     {
       "name": "Documentation",
-      "url": "docs"
+      "url": "/"
     },
     {
       "name": "API Documentation",
@@ -52,88 +52,84 @@
     {
       "group": "Documentation",
       "pages": [
-        "docs/introduction",
+        "what-is-bankstmtconverter",
         {
           "group": "Get Started",
           "pages": [
-            "docs/get-started/create-an-account",
-            "docs/get-started/dashboard-overview"
+            "get-started/create-an-account",
+            "get-started/dashboard-overview"
           ]
         },
-        "docs/file-upload",
-        "docs/statement",
+        "file-upload",
+        "statement",
         {
           "group": "How It Works",
           "pages": [
-            "docs/how-it-works/ai-model-works",
-            "docs/how-it-works/conversion-process",
-            "docs/how-it-works/ocr-processing"
+            "how-it-works/ai-model-works",
+            "how-it-works/conversion-process",
+            "how-it-works/ocr-processing"
           ]
         },
         {
           "group": "How To Use",
           "pages": [
-            "docs/how-to-use/upload-first-document",
-            "docs/how-to-use/supported-format"
+            "how-to-use/upload-first-document",
+            "how-to-use/supported-format"
           ]
         },
         {
           "group": "Settings",
           "pages": [
-            "docs/settings/billing-invoices",
-            "docs/settings/notification",
-            "docs/settings/security"
+            "settings/billing-invoices",
+            "settings/notification",
+            "settings/security"
           ]
         },
-        "docs/api-key",
-        "docs/tools",
-        "docs/faq"
+        "api-key",
+        "tools",
+        "faq"
       ]
     },
     {
       "group": "Integration",
       "pages": [
-        "docs/integration/google-sheets",
-        "docs/integration/webhooks"
+        "integration/google-sheets",
+        "integration/webhooks"
       ]
     },
     {
       "group": "Mailbox",
       "pages": [
-         "docs/mailbox"
+         "mailbox"
       ]
     },
     {
       "group": "Auto Email Forwarding",
       "pages": [
-        "docs/auto-email-forwarding/apple-icloud-message",
-        "docs/auto-email-forwarding/gmail-forwarding",
-        "docs/auto-email-forwarding/outlook-forwarding",
-        "docs/auto-email-forwarding/yahoo-forwarding"
+        "auto-email-forwarding/apple-icloud-message",
+        "auto-email-forwarding/gmail-forwarding",
+        "auto-email-forwarding/outlook-forwarding",
+        "auto-email-forwarding/yahoo-forwarding"
       ]
     },
     {
       "group": "Contact",
       "pages": [
-        "docs/contact"
+        "contact"
       ]
     },
     {
       "group": "Data-privacy",
       "pages": [
-        "docs/data-security-privacy"
+        "data-security-privacy"
       ]
     },
     {
       "group": "Release Notes",
       "pages": [
-        "docs/release-notes/latest-update",
-        "docs/release-notes/version-history"
+        "release-notes/latest-update",
+        "release-notes/version-history"
       ]
     }
-
-  ],
-  "footerSocials": {
-    "github": "https://github.com/tzktok/fastapi/tree/main/docs"
-  }
+  ]
 }
