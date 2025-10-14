@@ -73,8 +73,8 @@
         {
           "group": "How To Use",
           "pages": [
-            "docs/how-to-use/supported-format",
-            "docs/how-to-use/upload-first-document"
+            "docs/how-to-use/upload-first-document",
+            "docs/how-to-use/supported-format"
           ]
         },
         {
