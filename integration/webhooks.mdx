@@ -5,22 +5,22 @@ title: Webhooks
 
 
 Send parsed bank statement data in real-time to your desired endpoint.  
-Automatically push extracted information to any application that supports webhooks.
+Automatically push extracted information to any application that supports Webhooks.
 
 ### Access Integrations
 1. [Login](https://bankstmtconverter.com/login) to your **Bank Statement Converter** account. 
 2. Go to the **Dashboard**.  
 3. Click on **Integrations** → **Webhook** 
 4. Enter the **Name** & **Destination URL** provided by the third-party app where you want to send data.  
-5. click **submit**
-6. Ensure the webhook is **active**. You may see a status indicator like "Active" or "Enabled".
-7. You can **edit**, **delete**, or **log** existing webhooks anytime from the Webhooks page in Integrations.  
-8. Keep your webhook URLs secure to prevent unauthorized access.
+5. Click **Submit**
+6. Ensure the Webhook is **active**. You may see a status indicator like "Active" or "Enabled".
+7. You can **edit**, **delete**, or **log** existing Webhooks anytime from the Webhooks page in Integrations.
+8. Keep your Webhook URLs secure to prevent unauthorized access.
 ---
 
 # Send Data to a Webhook
 
-If you want to send your parsed data to your server, another app, or a platform that isn’t directly integrated with google sheets, or similar tools, the easiest way is to use a **webhook**. A webhook allows you to transfer data from one application to another in **real-time**, making it a more practical solution than traditional APIs.
+If you want to send your parsed data to your server, another app, or a platform that isn’t directly integrated with Google Sheets, or similar tools, the easiest way is to use a **webhook**. A webhook allows you to transfer data from one application to another in **real-time**, making it a more practical solution than traditional APIs.
 
 ## Steps to Export Your Parsed Data via Webhook
 
@@ -33,17 +33,17 @@ If you want to send your parsed data to your server, another app, or a platform 
 **Step 3:** Click on **“Create a webhook”**, select a trigger (typically **“Document parsed”**), and paste the destination URL.  
 ![destinationurl](/images/webhookdestinationurl.png)
 
-From this point onward, BankStatementConverter will trigger the webhook every time the selected event occurs.  
+From this point onward, Bank Statement Converter will trigger the webhook every time the selected event occurs.
 
 You can also use services like [webhook.site](https://webhook.site/) to generate a test webhook endpoint and view the received payload data in real-time.  
 
 ## Configuring Your Server to Receive Payloads
 
-If you want to receive webhook events on your own server, you can use the following code samples to handle the payload data effectively.
+If you want to receive Webhook events on your own server, you can use the following code samples to handle the payload data effectively.
 
 
-#### php
-```Php
+#### PHP
+```PHP
 $payload = @file_get_contents('php://input');
 // ...
 http_response_code(200);
@@ -95,7 +95,7 @@ def webhook():
 
 ```
 
-#### NodeJs
+#### Node.js
 ```JavaScript
 const express = require('express');
 const app = express();
@@ -111,17 +111,17 @@ app.listen(4242, () => console.log('Running on port 4242'));
 
 # Secure Your Webhooks (Optional)
 
-To receive webhooks, you need a **publicly accessible URL** (the webhook endpoint).  
+To receive Webhooks, you need a **publicly accessible URL** (the Webhook endpoint).
 Be aware that this can be insecure, as anyone who knows the URL could trigger actions on your server.
 
-Bankstatementconverter provides a **unique Signing Secret** for each webhook. Every webhook payload is signed using this secret, and the signature is sent in the request header `Bankstatementconverter-signature`.  
+BankStmtConverter provides a **unique Signing Secret** for each Webhook. Every Webhook payload is signed using this secret, and the signature is sent in the request header `BankStatementConverter-Signature`.
 
-Verifying this signature ensures that the request is genuine and truly sent from Bankstatementconverter.
+Verifying this signature ensures that the request is genuine and truly sent from BankStmtConverter.
 
 ## How to Verify the Signature
 
 1. Use your **Signing Secret** to generate a signature for the received payload.
-2. Compare your generated signature with the `Bankstatementconverter-signature` header sent with the webhook.
+2. Compare your generated signature with the `BankStmtConverter-signature` header sent with the Webhook.
 3. If both signatures match, the request is authentic and safe to process.
 
 ![signingsecretkey](/images/webhooksigningkey.png)
@@ -134,9 +134,9 @@ Verifying this signature ensures that the request is genuine and truly sent from
 
 - Convert this hash into Base64 format.
 
-- Compare your generated signature with the value received in the Bankstatementconverter-signature header.
+- Compare your generated signature with the value received in the BankStmtConverter-signature header.
 
-- If both values match, the webhook is verified.
+- If both values match, the Webhook is verified.
 
 ----
 # Webhook Event Fields
@@ -164,11 +164,11 @@ Verifying this signature ensures that the request is genuine and truly sent from
 
 ![webhook](/images/webhook.png)
 
-2. Ensure the webhook is **active**. You may see a status indicator like "Active" or "Enabled".
+2. Ensure the Webhook is **active**. You may see a status indicator like "Active" or "Enabled".
 
 ![webhooksigningkey](/images/webhooksigningkey.png)
 
-3. In the options menu, you can **Edit or Delete** your **Name and Destination URL**.
+3. In the options menu, you can **edit or delete** your **Name and Destination URL**.
 
 ![Editwebhook](/images/editwebhook.png)
 

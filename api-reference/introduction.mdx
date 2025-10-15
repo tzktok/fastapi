@@ -1,15 +1,15 @@
 ---
-title: Introduction to bankstmtconverter API
+title: Introduction to BankStmtConverter API
 ---
 
-**Getting start with bankstmtconverter API**
+**Getting start with BankStmtConverter API**
 
-Welcome to the bankstmtconverter API documentation! Here you will find everything you need to get started with integrating bankstmtconverter into your applications.
+Welcome to the BankStmtConverter API documentation! Here you will find everything you need to get started with integrating BankStmtConverter into your applications.
 
 ## API Keys
 
-- **Obtaining**: To access the API, you’ll need a valid `API key`. Retrieve it from the bankstmtconverter billing dashboard. If unavailable, please contact the admin.
-- **Authentication**: bankstmtconverter primarily authenticates using API keys.
+- **Obtaining**: To access the API, you’ll need a valid `API key`. Retrieve it from the BankStmtConverter billing dashboard. If unavailable, please contact the admin.
+- **Authentication**: BankStmtConverter primarily authenticates using API keys.
 - **Usage**: Always include your `API key` in the request header:
 
 ```json
@@ -118,20 +118,20 @@ POST /bankstmtconversion/async
 | page_num       | Int    | Number of pages to be processed (default is1).       |
 |webhook_url     | String | URL for webhook notification.                        |
 
-### Response Body 
+### Response Body
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
 | url         | String  | Presigned URL to download the converted file.|
 | doc_id      | String  | Document id for converted file.              |
 | error       | String  | Error message, if any.                       |
 
- ### Success Codes 
+ ### Success Codes
  | Code | Description                       |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
 | 201  | Conversion request accepted.       |
 
-### Error Codes 
+### Error Codes
 | Code | Description                        |
 |------|------------------------------------|
 | 400  | Bad Request - Invalid input data.  |
@@ -170,27 +170,27 @@ Endpoint
 ```
 GET/ bankstmtconversion/balance
 ```
-### Request Headers 
+### Request Headers
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
 | Content-Type  | String | `application/json   `   |
 
-### Response Body 
+### Response Body
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
 | remaining_credits| Int   | Credits after your file processing.       |
 | error            | String| Error message, if any.                    |
 
-### Success Codes 
+### Success Codes
 | Code | Description                        |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
 | 201  | Conversion request accepted.       |
 
-### Error Codes 
+### Error Codes
 | Code | Description                        |
-|------|------------------------------------|  
+|------|------------------------------------|
 | 401  | Unauthorized - Invalid API key.    |
 
 ### Example Request
