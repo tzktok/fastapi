@@ -126,8 +126,6 @@ Verifying this signature ensures that the request is genuine and truly sent from
 
 ![signingsecretkey](/images/webhooksigningkey.png)
 
-⚠️ Note: A Signing Secret is valid for 30 minutes. After that, requests signed with the expired key will fail verification.
-
 #### Steps to Verify the Signature
 
 - Generate a hash of the entire received payload using the HMAC SHA-256 algorithm with your Signing Secret as    the key.
@@ -146,7 +144,7 @@ Verifying this signature ensures that the request is genuine and truly sent from
 | Field Name    | Value from your event              | Meaning                                                                                   |
 |---------------|------------------------------------|-------------------------------------------------------------------------------------------|
 | `event`       | `"document.extracted"`             | The core action: The document has been successfully processed and its content/metadata is now available. This triggers your system to act. |
-| `document_id` | `"01k6mabs1npmhaedy6yf1c9hmc"`     | A unique identifier for this specific document. Use this ID to fetch the extracted data (text, tables, etc.). |
+| `document_id` | `"01k6mabs1npmhaedyc9hmc"`         | A unique identifier for this specific document. Use this ID to fetch the extracted data (text, tables, etc.). |
 | `name`        | `"Bankstmtconverter-Pricing.pdf"`  | The original filename of the document.                                                     |
 | `size`        | `15025`                            | The size of the document in bytes.                                                         |
 | `pages`       | `1`                                | The number of pages in the document.                                                       |
