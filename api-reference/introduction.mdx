@@ -1,19 +1,24 @@
 ---
-title: Introduction to bankstmtconverter API
+title: Introduction to BankStmtConverter API
 ---
 
-**Getting start with bankstmtconverter API**
+# Getting Started with BankStmtConverter API
 
-Welcome to the bankstmtconverter API documentation! Here you will find everything you need to get started with integrating bankstmtconverter into your applications.
+Welcome to the BankStmtConverter API documentation!  
+Here you will find everything you need to get started with integrating BankStmtConverter into your applications.
+
+---
 
 ## API Keys
 
-- **Obtaining**: To access the API, you’ll need a valid `API key`. Retrieve it from the bankstmtconverter billing dashboard. If unavailable, please contact the admin.
-- **Authentication**: bankstmtconverter primarily authenticates using API keys.
-- **Usage**: Always include your `API key` in the request header:
+- **Obtaining**: To access the API, you'll need a valid API key. Retrieve it from the BankStmtConverter billing dashboard. If unavailable, please contact the admin.
+- **Authentication**: BankStmtConverter primarily authenticates using API keys.
+- **Usage**: Always include your API key in the request header:
 
 ```json
-'Authorization': 'Bearer <api_key>'
+{
+  "Authorization": "Bearer <api_key>"
+}
 ```
 
 ### JSON Response
@@ -22,15 +27,17 @@ Expect responses from the API in JSON format. Ensure your system can parse this 
 
 ### Handling Authentication Errors
 
-If your API key is absent, not formatted correctly, or invalid, you’ll receive a 401 Unauthorized HTTP response.
+If your API key is absent, not formatted correctly, or invalid, you'll receive a 401 Unauthorized HTTP response.
 
-### API Endpoints
-Convert Bank Statement
+#### API Endpoints
 
-Endpoint
+## Convert Bank Statement
+
+#### Endpoint
 ```
 POST /bankstmtconversion/sync
 ```
+
 #### Request Headers
 
 | Header        | Type   | Description             |
@@ -58,7 +65,6 @@ POST /bankstmtconversion/sync
 | Code | Description                  |
 |------|------------------------------|
 | 200  | Conversion successful.       |
-| 201  | Conversion request accepted. |
 
 #### Error Codes
 
@@ -67,151 +73,176 @@ POST /bankstmtconversion/sync
 | 400  | Bad Request - Invalid input data. |
 | 404  | Not found - file is missing.      |
 | 401  | Unauthorized - Invalid API key.   |
+| 422  | Unprocessable Entity - Field required or missing data.|
 | 402  | Payment Required - Plan expired.  |
 | 500  | Internal Server Error.            |
 
 #### Example Request
-```bash
 
-### Example Request - Sync
-```
+```bash
 curl --request POST \
   --url https://api.bankstmtconverter.com/sync \
   --header 'Authorization: Bearer <token>' \
   --header 'Content-Type: multipart/form-data' \
   --form page_num=1 \
   --form file="https://example.com/path/to/your/file.pdf"
-
 ```
-### Example Response
+
+#### Example Response
+
 Success Response
-```
+```json
 {
-    "url": "https://s3/url"
-    "doc_id": "20240XXX"
-}
-```
-Error Response
-```
-{
-    "code": Error_Code ,
-    "error": "Your_error_message"
+  "url": "https://presigned-url.example.com",
+  "doc_id": "20240XXX"
 }
 ```
 
-Endpoint
+Error Response
+```json
+{
+  "code": "Error_Code",
+  "error": "Your_error_message"
+}
+```
+
+### Async Conversion
+
+#### Endpoint
 ```
 POST /bankstmtconversion/async
 ```
-### Request Headers - Async
+
+#### Request Headers - Async
 
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
-| Content-Type  | String | `Multipart/form-data`   |
+| Content-Type  | String | `multipart/form-data`   |
 
-### Request Body - Async
+#### Request Body - Async
 
 | Field          | Type   | Description                                          |
 |----------------|--------|------------------------------------------------------|
 | file           | String | URL of the bank statement file to be converted (PDF).|
-| page_num       | Int    | Number of pages to be processed (default is1).       |
-|webhook_url     | String | URL for webhook notification.                        |
+| page_num       | Int    | Number of pages to be processed (default is 1).      |
+| webhook_url    | String | URL for webhook notification.                        |
 
-### Response Body 
+#### Response Body
+
 | Field       | Type    | Description                                  |
 |-------------|---------|----------------------------------------------|
 | url         | String  | Presigned URL to download the converted file.|
 | doc_id      | String  | Document id for converted file.              |
 | error       | String  | Error message, if any.                       |
 
- ### Success Codes 
- | Code | Description                       |
+#### Success Codes
+
+| Code | Description                        |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
-| 201  | Conversion request accepted.       |
 
-### Error Codes 
+
+#### Error Codes
+
 | Code | Description                        |
 |------|------------------------------------|
 | 400  | Bad Request - Invalid input data.  |
 | 404  | Not found - file is missing.       |
 | 401  | Unauthorized - Invalid API key.    |
+| 422  | Unprocessable Entity - Field required or missing data.|
 | 402  | Payment Required - Plan expired.   |
 | 500  | Internal Server Error.             |
 
-### Example Request - Async
-```
+#### Example Request - Async
+
+```bash
 curl --request POST \
   --url https://api.bankstmtconverter.com/async \
   --header 'Authorization: Bearer <token>' \
   --header 'Content-Type: multipart/form-data' \
   --form page_num=1 \
-  --form 'webhook_url=<string>' \
+  --form webhook_url="https://your-webhook.example.com/callback" \
   --form file="https://example.com/path/to/your/file.pdf"
 ```
-### Example Response
+
+#### Example Response
+
 Success Response
-```
+```json
 {
-    "doc_id": "20240XXX",
-    "status": "In-Progress"
+  "doc_id": "20240XXX",
+  "status": "In-Progress"
 }
 ```
+
 Error Response
-```
+```json
 {
-    "code": Error_Code ,
-    "error": "Your_error_message"
+  "code": "Error_Code",
+  "error": "Your_error_message"
 }
 ```
+
 ### Check Remaining Credits
-Endpoint
+
+#### Endpoint
 ```
-GET/ bankstmtconversion/balance
+GET /bankstmtconversion/balance
 ```
-### Request Headers 
+
+#### Request Headers
+
 | Header        | Type   | Description             |
 |---------------|--------|-------------------------|
 | Authorization | String | `Bearer <api_key>`      |
-| Content-Type  | String | `application/json   `   |
+| Content-Type  | String | `application/json`      |
 
-### Response Body 
-| Field       | Type    | Description                                  |
-|-------------|---------|----------------------------------------------|
-| remaining_credits| Int   | Credits after your file processing.       |
-| error            | String| Error message, if any.                    |
+#### Response Body
 
-### Success Codes 
+| Field             | Type    | Description                                  |
+|-------------------|---------|----------------------------------------------|
+| remaining_credits | Int     | Credits after your file processing.          |
+| error             | String  | Error message, if any.                       |
+
+#### Success Codes
+
 | Code | Description                        |
 |------|------------------------------------|
 | 200  | Conversion successful.             |
-| 201  | Conversion request accepted.       |
 
-### Error Codes 
+
+#### Error Codes
+
 | Code | Description                        |
-|------|------------------------------------|  
+|------|------------------------------------|
 | 401  | Unauthorized - Invalid API key.    |
 
-### Example Request
-```
+#### Example Request
+
+```bash
 curl --request GET \
   --url https://api.bankstmtconverter.com/balance \
   --header 'Authorization: Bearer <token>'
 ```
-### Example Response
-success Response
-```
+
+#### Example Response
+
+Success Response
+```json
 {
-    "remaining_credits": Your_remaining_credits_in_integer_value
+  "remaining_credits": 1500
 }
 ```
+
 Error Response
-```
+```json
 {
-    "code": Error_Code ,
-    "error": "Your_error_message"
+  "code": "Error_Code",
+  "error": "Your_error_message"
 }
 ```
+
 ### Support & Assistance
+
 For assistance or further queries, reach out to us.

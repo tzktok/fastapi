@@ -1,7 +1,7 @@
 {
   "name": "Bankstmtconverter",
   "logo": {
-    "dark": "logo-final.png",
+    "dark": "logo.png",
     "light": "logo-final.png"
   },
   "favicon": "/logo.svg",
@@ -26,24 +26,110 @@
   },
   "tabs": [
     {
+      "name": "Documentation",
+      "url": "/"
+    },
+    {
+      "name": "API Documentation",
+      "url": "api-reference"
+    },
+    {
       "name": "API Endpoints",
       "url": "api-endpoints",
       "openapi": "/api-reference/openapi.json"
     }
+    
   ],
   "navigation": [
     {
-      "group": "API Documentation",
+      "group": "Getting Started",
       "pages": [
         "api-reference/bankstmtconverter",
         "api-reference/quickstart",
         "api-reference/introduction"
       ]
+    },
+    {
+      "group": "Documentation",
+      "pages": [
+        "what-is-bankstmtconverter",
+        {
+          "group": "Get Started",
+          "pages": [
+            "get-started/create-an-account",
+            "get-started/dashboard-overview"
+          ]
+        },
+        "file-upload",
+        "statement",
+        {
+          "group": "How It Works",
+          "pages": [
+            "how-it-works/ai-model-works",
+            "how-it-works/conversion-process",
+            "how-it-works/ocr-processing"
+          ]
+        },
+        {
+          "group": "How To Use",
+          "pages": [
+            "how-to-use/upload-first-document",
+            "how-to-use/supported-format"
+          ]
+        },
+        {
+          "group": "Settings",
+          "pages": [
+            "settings/billing-invoices",
+            "settings/notification",
+            "settings/security"
+          ]
+        },
+        "api-key",
+        "tools",
+        "faq"
+      ]
+    },
+    {
+      "group": "Integration",
+      "pages": [
+        "integration/google-sheets",
+        "integration/webhooks"
+      ]
+    },
+    {
+      "group": "Mailbox",
+      "pages": [
+         "mailbox"
+      ]
+    },
+    {
+      "group": "Auto Email Forwarding",
+      "pages": [
+        "auto-email-forwarding/apple-icloud-message",
+        "auto-email-forwarding/gmail-forwarding",
+        "auto-email-forwarding/outlook-forwarding",
+        "auto-email-forwarding/yahoo-forwarding"
+      ]
+    },
+    {
+      "group": "Contact",
+      "pages": [
+        "contact"
+      ]
+    },
+    {
+      "group": "Data-privacy",
+      "pages": [
+        "data-security-privacy"
+      ]
+    },
+    {
+      "group": "Release Notes",
+      "pages": [
+        "release-notes/latest-update",
+        "release-notes/version-history"
+      ]
     }
-  ],
-  "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+  ]
 }
